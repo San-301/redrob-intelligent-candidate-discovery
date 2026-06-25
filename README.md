@@ -2,66 +2,55 @@
 
 ## Overview
 
-This project is a production-style AI recruiter system developed for the Redrob Intelligent Candidate Discovery & Ranking Challenge.
+Redrob Intelligent Candidate Discovery is a production-grade AI recruiter system developed for the **Redrob Intelligent Candidate Discovery & Ranking Challenge**.
 
-The system ranks candidates from a large candidate pool by combining:
+The system identifies and ranks the top candidates for a given Job Description by combining semantic profile understanding, feature engineering, behavioral signals, and explainable AI reasoning.
 
-* Candidate profile understanding
-* Feature engineering
-* Hybrid retrieval and ranking
-* Behavioral signals
-* Honeypot detection
-* Explainable AI reasoning
-
-The objective is to identify the most suitable candidates for a given job description while maintaining production constraints such as low latency, CPU-only execution, and reproducibility.
+The ranking pipeline is designed to mimic real-world recruiting systems while satisfying strict production constraints such as low latency, CPU-only execution, reproducibility, and scalability.
 
 ---
 
 ## Key Features
 
-* Hybrid candidate retrieval and ranking
-* AI/ML skill extraction
-* Retrieval and ranking experience detection
+* Intelligent candidate ranking for large candidate pools (100K+ candidates)
+* Hybrid retrieval and ranking architecture
+* AI/ML skill extraction and profiling
+* Retrieval, search, and ranking experience detection
 * Production ML experience identification
-* Evaluation framework detection (NDCG, MRR, MAP, A/B Testing)
 * Behavioral signal integration
-* Honeypot candidate detection
-* Explainable ranking reasons
-* Deterministic ranking with reproducible results
+* Product company and AI company experience modeling
+* Honeypot candidate detection and penalization
+* Explainable ranking with human-readable reasoning
+* Deterministic and reproducible ranking pipeline
 
 ---
 
-## Architecture
+## System Architecture
 
+```text
 Candidate JSONL
-
-      ↓
-
+        │
+        ▼
 CandidateParser
-
-      ↓
-
+        │
+        ▼
 FeatureBuilder
-
-↓
-
+        │
+        ▼
 HoneypotDetector
-
-      ↓
-
+        │
+        ▼
 CandidateScorer
-
-      ↓
-
+        │
+        ▼
 CandidateRanker
-
-      ↓
-
+        │
+        ▼
 ReasonGenerator
-
-      ↓
-
+        │
+        ▼
 Submission CSV
+```
 
 ---
 
@@ -69,17 +58,50 @@ Submission CSV
 
 ```text
 src/
-├── preprocessing/
 ├── features/
+├── preprocessing/
 ├── ranking/
-├── retrieval/
 ├── reasoning/
+├── retrieval/
 ├── validation/
 
+data/
 rank.py
 requirements.txt
 README.md
 ```
+
+---
+
+## Ranking Signals
+
+The final ranking score combines multiple signals:
+
+* Experience relevance
+* Title relevance
+* Retrieval and search expertise
+* Evaluation framework knowledge
+* AI/ML experience
+* Production deployment evidence
+* Product company background
+* Behavioral engagement signals
+* Recruiter interaction signals
+* Open-to-work status
+* Honeypot and inconsistency penalties
+
+---
+
+## Runtime Characteristics
+
+| Constraint    | Value       |
+| ------------- | ----------- |
+| Runtime       | ~30 seconds |
+| Compute       | CPU Only    |
+| GPU Usage     | No          |
+| Network Calls | None        |
+| Memory        | <16 GB      |
+
+---
 
 ## Installation
 
@@ -87,28 +109,50 @@ README.md
 pip install -r requirements.txt
 ```
 
+---
+
 ## Generate Submission
 
 ```bash
 python rank.py --candidates data/raw/candidates.jsonl --out submission.csv
 ```
 
-## Runtime Characteristics
+---
 
-* CPU-only execution
-* No external API calls
-* Runtime: ~30 seconds for 100K candidates
-* Memory usage: <16 GB
-
-## Validation
+## Validate Submission
 
 ```bash
 python validate_final_submission.py
 ```
 
+---
+
+## Reproducibility
+
+The ranking pipeline is fully deterministic and reproducible.
+
+* No external API calls
+* No hosted LLM dependencies
+* CPU-only execution
+* Deterministic tie-breaking
+* Reproducible ranking outputs
+
+---
+
 ## Competition Constraints
 
-* No GPU usage during ranking
+This solution adheres to all competition constraints:
+
+* CPU-only ranking
+* Runtime under 5 minutes
 * No network/API calls during ranking
-* Ranking runtime under 5 minutes
-* Deterministic and reproducible pipeline
+* No GPU usage during ranking
+* Fully reproducible pipeline
+
+---
+
+## Authors
+
+Builder of AI Team
+
+Developed for the Redrob Intelligent Candidate Discovery & Ranking Challenge.
