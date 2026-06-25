@@ -43,7 +43,7 @@ CandidateParser
 
 FeatureBuilder
 
-      ↓
+↓
 
 HoneypotDetector
 
