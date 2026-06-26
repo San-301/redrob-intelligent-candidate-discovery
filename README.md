@@ -180,10 +180,10 @@ python rank.py --candidates data/raw/candidates.jsonl --out submission.csv
 ## Validate Submission
 
 ```bash
-python validate_final_submission.py
-```
+python validate_submission.py submission.csv
 
----
+python validate_final_submission.py submission.csv data/raw/candidates.jsonl
+```
 
 ## Explainable AI Reasoning
 
