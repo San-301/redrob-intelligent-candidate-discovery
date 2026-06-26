@@ -2,7 +2,7 @@
 
 project:
 name: "Redrob Intelligent Candidate Discovery"
-team: "Builder of AI"
+team: "Builder_of_AI"
 
 data:
 candidates_path: "data/raw/candidates.jsonl"
@@ -12,7 +12,7 @@ top_k_semantic: 2000
 final_k: 100
 
 ranking:
-max_score: 0.9999
+max_score: 0.971151
 deterministic_sort: true
 
 runtime:
