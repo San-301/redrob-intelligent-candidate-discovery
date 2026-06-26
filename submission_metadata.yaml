@@ -1,25 +1,21 @@
 # Redrob Hackathon Submission Metadata
 
-team_name: "Builder of AI"
+team_name: "Builder_of_AI"
 
 primary_contact:
-name: "Shaik Sai Babu"
-email: "YOUR_EMAIL_HERE"
-phone: "+91-XXXXXXXXXX"
+name: "Surya Nandan"
+email: "nandansurya09@gmail.com"
+phone: "+91-8688644863"
 
 team_members:
 
-* name: "Shaik Sai Babu"
-  email: "YOUR_EMAIL_HERE"
-  role: "ML Engineer"
-
+* name: "Surya Nandan"
+  email: "nandansurya09@gmail.com"
+  role: "Student Developer"
+  
 github_repo: "https://github.com/San-301/redrob-intelligent-candidate-discovery"
 
-sandbox_link: "TO_BE_ADDED"
-
-# Example:
-
-# https://huggingface.co/spaces/San-301/redrob-intelligent-candidate-discovery
+sandbox_link: "https://san301-redrob-intelligent-candidate-discovery.hf.space"
 
 reproduce_command: "python rank.py --candidates ./data/raw/candidates.jsonl --out ./submission.csv"
 
