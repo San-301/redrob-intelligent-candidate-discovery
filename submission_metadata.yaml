@@ -1,3 +1,11 @@
+# Redrob Hackathon Submission Metadata
+
+# ============================================================================
+
+# Team identity
+
+# ============================================================================
+
 team_name: "Builder_of_AI"
 
 primary_contact:
@@ -11,11 +19,23 @@ team_members:
   email: "[nandansurya09@gmail.com](mailto:nandansurya09@gmail.com)"
   role: "Student Developer"
 
+# ============================================================================
+
+# Code and reproducibility
+
+# ============================================================================
+
 github_repo: "https://github.com/San-301/redrob-intelligent-candidate-discovery"
 
 sandbox_link: "https://san301-redrob-intelligent-candidate-discovery.hf.space"
 
 reproduce_command: "python rank.py --candidates ./data/raw/candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+
+# Compute environment
+
+# ============================================================================
 
 compute:
 platform: "Local Windows Machine"
@@ -28,6 +48,12 @@ has_network_during_ranking: false
 pre_computation_required: false
 pre_computation_time_minutes: 0
 
+# ============================================================================
+
+# AI tools declaration
+
+# ============================================================================
+
 ai_tools_used:
 
 * "ChatGPT"
@@ -39,6 +65,12 @@ documentation. All ranking logic, experimentation, optimization,
 validation, and final system integration were performed manually by
 the team. No external LLM APIs were used during candidate ranking.
 
+# ============================================================================
+
+# Approach summary
+
+# ============================================================================
+
 methodology_summary: |
 Developed a production-style candidate ranking system combining
 semantic retrieval, feature engineering, behavioral signals,
@@ -49,6 +81,12 @@ framework ranks candidates while penalizing suspicious or inconsistent
 profiles. Explainable reasoning is generated for every ranked
 candidate. The system executes entirely on CPU without network access
 and ranks 100,000 candidates in approximately 30 seconds.
+
+# ============================================================================
+
+# Declarations
+
+# ============================================================================
 
 declarations:
 read_submission_spec: true
