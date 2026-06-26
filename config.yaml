@@ -1,0 +1,32 @@
+# Project Configuration
+
+project:
+name: "Redrob Intelligent Candidate Discovery"
+team: "Builder of AI"
+
+data:
+candidates_path: "data/raw/candidates.jsonl"
+
+retrieval:
+top_k_semantic: 2000
+final_k: 100
+
+ranking:
+max_score: 0.9999
+deterministic_sort: true
+
+runtime:
+use_gpu: false
+allow_network_calls: false
+max_runtime_minutes: 5
+
+models:
+embedding_model: "all-MiniLM-L6-v2"
+
+output:
+submission_file: "submission.csv"
+
+validation:
+check_duplicates: true
+validate_scores: true
+validate_reasoning: true
