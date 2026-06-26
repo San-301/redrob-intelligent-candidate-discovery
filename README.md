@@ -40,6 +40,9 @@ FeatureBuilder
 HoneypotDetector
         │
         ▼
+Semantic Retrieval
+        │
+        ▼
 CandidateScorer
         │
         ▼
@@ -58,14 +61,15 @@ Submission CSV
 
 ```text
 src/
+├── embeddings/
 ├── features/
 ├── preprocessing/
 ├── ranking/
 ├── reasoning/
 ├── retrieval/
+├── utils/
 ├── validation/
 
-data/
 rank.py
 requirements.txt
 README.md
@@ -87,7 +91,23 @@ The final ranking score combines multiple signals:
 * Behavioral engagement signals
 * Recruiter interaction signals
 * Open-to-work status
+* Leadership signals
 * Honeypot and inconsistency penalties
+
+---
+
+## Honeypot Detection
+
+The dataset contains intentionally misleading profiles (honeypots). To improve ranking quality, the system implements explicit profile consistency checks.
+
+Detected inconsistencies include:
+
+* Unrealistic skill inflation
+* Suspicious experience-to-skill ratios
+* Research-heavy profiles with limited production evidence
+* Profile inconsistencies across career history and claimed expertise
+
+Candidates exhibiting suspicious behavior receive penalties during ranking, reducing the likelihood of honeypots appearing in the final Top-100.
 
 ---
 
@@ -100,6 +120,44 @@ The final ranking score combines multiple signals:
 | GPU Usage     | No          |
 | Network Calls | None        |
 | Memory        | <16 GB      |
+
+---
+
+## Validation Framework
+
+The project includes a comprehensive validation framework to ensure strict compliance with the official hackathon submission specification.
+
+Validation checks include:
+
+* Exactly 100 ranked candidates
+* Unique candidate IDs
+* Unique rank values (1-100)
+* Monotonically non-increasing scores
+* Duplicate reasoning detection
+* Submission format verification
+* Reasoning diversity analysis
+* Final submission integrity checks
+
+Validation scripts:
+
+```bash
+python validate_submission.py
+python validate_final_submission.py
+```
+
+The final validator was developed based on the official hackathon submission specification and additionally performs custom quality checks to improve submission robustness.
+
+---
+
+## Dataset Setup
+
+Place the official hackathon dataset in:
+
+```text
+data/raw/candidates.jsonl
+```
+
+The dataset is not included in this repository because it is distributed separately as part of the official hackathon bundle.
 
 ---
 
@@ -127,6 +185,31 @@ python validate_final_submission.py
 
 ---
 
+## Explainable AI Reasoning
+
+Every ranked candidate is accompanied by a human-readable explanation.
+
+Reasoning generation considers:
+
+* Years of experience
+* Current title relevance
+* Retrieval and ranking expertise
+* Production ML evidence
+* AI/ML experience
+* Behavioral signals
+* Recruiter engagement
+* Potential concerns and risk factors
+
+The generated explanations are:
+
+* Candidate-specific
+* Deterministic
+* Non-hallucinatory
+* Rank-aware
+* Aligned with competition evaluation criteria
+
+---
+
 ## Reproducibility
 
 The ranking pipeline is fully deterministic and reproducible.
@@ -136,6 +219,22 @@ The ranking pipeline is fully deterministic and reproducible.
 * CPU-only execution
 * Deterministic tie-breaking
 * Reproducible ranking outputs
+
+---
+
+## Additional Engineering Considerations
+
+Several engineering practices were adopted to improve production readiness:
+
+* Deterministic ranking with tie-breaking
+* CPU-only execution for scalability
+* Hybrid retrieval architecture
+* Modular pipeline design
+* Feature-based scoring for low latency
+* Local experimentation and iterative refinement
+* Complete offline execution without external APIs
+
+The repository represents the final production-ready version of the system after extensive local experimentation, profiling, and iterative optimization.
 
 ---
 
@@ -153,6 +252,6 @@ This solution adheres to all competition constraints:
 
 ## Authors
 
-Builder of AI Team
+**Builder of AI Team**
 
-Developed for the Redrob Intelligent Candidate Discovery & Ranking Challenge.
+Developed for the **Redrob Intelligent Candidate Discovery & Ranking Challenge**.
