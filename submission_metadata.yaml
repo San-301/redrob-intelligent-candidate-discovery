@@ -1,18 +1,16 @@
-# Redrob Hackathon Submission Metadata
-
 team_name: "Builder_of_AI"
 
 primary_contact:
 name: "Surya Nandan"
-email: "nandansurya09@gmail.com"
+email: "[nandansurya09@gmail.com](mailto:nandansurya09@gmail.com)"
 phone: "+91-8688644863"
 
 team_members:
 
 * name: "Surya Nandan"
-  email: "nandansurya09@gmail.com"
+  email: "[nandansurya09@gmail.com](mailto:nandansurya09@gmail.com)"
   role: "Student Developer"
-  
+
 github_repo: "https://github.com/San-301/redrob-intelligent-candidate-discovery"
 
 sandbox_link: "https://san301-redrob-intelligent-candidate-discovery.hf.space"
