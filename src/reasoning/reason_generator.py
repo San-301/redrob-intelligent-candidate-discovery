@@ -342,7 +342,8 @@ class ReasonGenerator:
             f"{candidate_features.get('github_score', 0):.1f}, "
             f"response "
             f"{candidate_features.get('response_rate', 0) * 100:.0f}%, "
-            f"ref {candidate_features['candidate_id'][-4:]}"
+            f"ref {str(candidate_features.get('candidate_id', '0000'))[-4:]}"
         )
 
         return reasoning
+
