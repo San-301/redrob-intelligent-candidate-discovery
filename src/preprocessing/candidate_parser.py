@@ -362,6 +362,14 @@ class CandidateParser:
                     title_strength = 0.6
                     break
 
+        # Seniority calibration
+        raw_title_lower = self.normalize_text(profile.get("current_title", ""))
+        if any(p in raw_title_lower for p in ["staff", "principal", "lead", "architect", "head"]):
+            title_strength *= 1.25
+        elif any(p in raw_title_lower for p in ["senior", "sr ", "sr."]):
+            title_strength *= 1.05
+        elif any(p in raw_title_lower for p in ["junior", "jr ", "jr.", "intern", "associate", "trainee"]):
+            title_strength *= 0.55
 
         consulting_jobs = 0
         product_company_exp = 0
