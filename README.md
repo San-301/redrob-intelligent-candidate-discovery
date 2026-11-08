@@ -12,16 +12,19 @@ The ranking pipeline is designed to mimic real-world recruiting systems while sa
 
 ## Key Features
 
-* Intelligent candidate ranking for large candidate pools (100K+ candidates)
-* Hybrid retrieval and ranking architecture
-* AI/ML skill extraction and profiling
-* Retrieval, search, and ranking experience detection
-* Production ML experience identification
-* Behavioral signal integration
-* Product company and AI company experience modeling
-* Honeypot candidate detection and penalization
-* Explainable ranking with human-readable reasoning
-* Deterministic and reproducible ranking pipeline
+* **Live Interactive Web Platform (`app.py`):** Full-featured recruiting dashboard with candidate upload, custom JD configuration, real-time ranking, head-to-head candidate comparison, anti-fraud lab, and talent analytics.
+* **Product User Manual:** Complete step-by-step documentation available in [`USER_MANUAL.md`](file:///c:/Users/ssury/OneDrive/Desktop/redrob-intelligent-candidate-discovery-main/USER_MANUAL.md).
+* **Intelligent candidate ranking for large candidate pools (100K+ candidates)**
+* **Recruiter Dynamic Range Calibration:** Clear 23.3% score spread across the top 100 rather than compressed identical scores.
+* **Hybrid retrieval and ranking architecture**
+* **AI/ML skill extraction and profiling**
+* **Retrieval, search, and ranking experience detection**
+* **Production ML experience identification**
+* **Behavioral signal integration (GitHub score, recruiter response rate, notice period)**
+* **Product company and AI company experience modeling**
+* **Honeypot candidate detection and penalization (11 defensive anti-fraud rules)**
+* **Explainable ranking with human-readable reasoning**
+* **Deterministic and reproducible ranking pipeline**
 
 ---
 
@@ -67,12 +70,15 @@ src/
 ├── ranking/
 ├── reasoning/
 ├── retrieval/
+├── ui/              # Styling and visual components
 ├── utils/
 ├── validation/
 
-rank.py
-requirements.txt
-README.md
+app.py               # Live Streamlit Interactive Web Application
+rank.py              # Production CLI Ranking Pipeline
+requirements.txt     # Python Dependencies
+USER_MANUAL.md       # Complete Product User Guide
+README.md            # Technical Architecture & Reproduction Guide
 ```
 
 ---
@@ -158,6 +164,28 @@ data/raw/candidates.jsonl
 ```
 
 The dataset is not included in this repository because it is distributed separately as part of the official hackathon bundle.
+
+---
+
+## Live Interactive Web Application (Streamlit)
+
+You can launch the complete interactive talent discovery platform locally or deploy it to Streamlit Cloud / Hugging Face Spaces:
+
+```bash
+streamlit run app.py
+```
+
+### Web App Capabilities:
+* **Interactive File Uploader:** Upload any `.jsonl` or `.json` candidate pool on the fly.
+* **1-Click Benchmark Dataset:** Load 50 realistic benchmark candidate profiles (including Tier-1 ML engineers, consulting profiles, and honeypots) to immediately test and explore without needing to supply external files.
+* **Dynamic Job Description Selector:** Choose from pre-configured roles (e.g. Senior Retrieval & Ranking Engineer, GenAI / RAG Engineer, Search Architect) or paste your own custom JD.
+* **Live In-Browser Discovery & Ranking:** Run sub-second candidate scoring, filtering, and explainable AI generation.
+* **Dual Display Views:** Switch between rich visual **Card View** (with score badges, key matched/missing skills, notice period, and recruiter signals) and an **Interactive Data Table**.
+* **Candidate Deep Dive:** Inspect individual candidates with score contribution charts, career history timelines, and complete skill inventories.
+* **Head-to-Head Comparison Lab:** Compare 2 or 3 candidates side-by-side across experience, production ML evidence, notice period, and honeypot risk.
+* **Honeypot & Fraud Defense Lab:** Audit the candidate pool against 11 anti-fraud heuristics and inspect reasons for flagged profiles.
+* **Talent Pool Analytics:** Visual distributions of match scores, experience levels, notice periods, and company pedigrees.
+* **One-Click Exports:** Download both the official Hackathon submission CSV (`candidate_id, rank, score, reasoning`) and comprehensive recruiter analytics reports.
 
 ---
 
